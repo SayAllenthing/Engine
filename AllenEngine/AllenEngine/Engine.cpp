@@ -11,35 +11,26 @@ Engine::~Engine()
 
 bool Engine::Init()//Initialize Engine and required components
 {
-	bool result;
-	result = InitWindow();//Create a window
-	printf("HEIEIE");
-		//return false;
+	if(!InitWindow())//Create a window
+		return false;
+
+	m_graphics = new Graphics();
+	if(!m_graphics->Init(0,0,m_hwnd))
+		return false;
+
+	//TESTING GAMEOBJECT CODE ================================
+	m_world = new World();
+	GameObject *temp;
+	temp = new GameObject(*m_world);
+	m_world->Debug();
+	//========================================================
 
 	return true;
 }
 
 bool Engine::InitWindow()
 {
-	/*
-	WNDCLASSEX wc; //Information for the window
-
-	m_instance = GetModuleHandle(NULL);
-	m_appname = L"AllenEngine";
-
-	//Temp variables, may change to member variables	
 	
-	int screenWidth = 800;
-	int screenHeight = 600;
-	int xPos = (GetSystemMetrics(SM_CXSCREEN) - screenWidth) /2;
-	int yPos = (GetSystemMetrics(SM_CYSCREEN) - screenHeight) / 2;
-
-
-	// fill in the struct with the needed information
-    
-
-	
-	*/
 
 	WNDCLASSEX wc;
 	//DEVMODE dmScreenSettings;
@@ -112,6 +103,8 @@ void Engine::CloseWindow()
 
 bool Engine::Update()
 {
+	m_world->Update();
+	m_graphics->Update();
 
 	return true;
 }
@@ -149,7 +142,9 @@ void Engine::Run()
 void Engine::Exit()
 {
 	//close all components
-
+	m_world->ShutDown();
+	m_world = NULL;
+	delete m_world;
 
 	CloseWindow();
 

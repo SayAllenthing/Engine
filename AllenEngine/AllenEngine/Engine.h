@@ -4,6 +4,8 @@
 
 #include <Windows.h>
 #include <iostream>
+#include "World.h"
+#include "Graphics.h"
 
 class Engine
 {
@@ -24,6 +26,8 @@ private:
 	HWND m_hwnd;
 	HINSTANCE m_instance;
 	LPWSTR m_appname;
+	World *m_world;
+	Graphics *m_graphics;
 };
 
 static LRESULT CALLBACK WindowProc(HWND hWnd,
