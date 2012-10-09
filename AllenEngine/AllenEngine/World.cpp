@@ -49,7 +49,7 @@ std::string World::AddGameObject(GameObject &c)
 			found = true;
 		i++;
 	}
-	std::string s = "Object " + convertInt(m_objects.size()+i);
+	std::string s = "Object_" + convertInt(m_objects.size()+i);
 	m_objects.push_back(&c);
 	return s;
 }

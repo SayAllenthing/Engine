@@ -9,3 +9,8 @@ void Component::Update()
 {
 
 }
+
+//void Component::setParent(GameObject &g)
+//{
+	//m_parent = &g;
+//}

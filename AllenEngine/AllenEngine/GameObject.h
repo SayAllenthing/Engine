@@ -3,9 +3,12 @@
 #include <D3DX10math.h>
 #include <vector>
 #include "Transform.h"
+#include "MeshRenderer.h"
+#include "CameraComponent.h"
 #include "World.h"
 
 class World;
+class Component;
 
 class GameObject
 {
@@ -14,6 +17,8 @@ public:
 	std::string tag;
 
 	Transform *transform;
+	MeshRenderer *meshRenderer;
+	CameraComponent *cameraComponent;
 
 	GameObject *Parent;
 

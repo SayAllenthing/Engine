@@ -21,8 +21,8 @@ bool Engine::Init()//Initialize Engine and required components
 	//TESTING GAMEOBJECT CODE ================================
 	m_world = new World();
 	GameObject *temp;
-	temp = new GameObject(*m_world);
-	m_world->Debug();
+	temp = new PlayerObject(*m_world);
+	m_world->Debug();	
 	//========================================================
 
 	return true;

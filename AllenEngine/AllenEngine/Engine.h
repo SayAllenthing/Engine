@@ -6,6 +6,7 @@
 #include <iostream>
 #include "World.h"
 #include "Graphics.h"
+#include "PlayerObject.h"
 
 class Engine
 {

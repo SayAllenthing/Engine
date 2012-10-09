@@ -13,6 +13,9 @@ GameObject::GameObject(World &w)
 
 	transform = new Transform();
 	AddComponent(*transform);
+
+	meshRenderer = NULL;
+	cameraComponent = NULL;
 }
 
 GameObject::~GameObject()
@@ -46,6 +49,7 @@ void GameObject::AddComponent(Component &c)
 	if(!HasComponent(c.GetType()))
 	{
 		m_components.push_back(&c);
+		//c.setParent(*this);
 	}
 }
 
